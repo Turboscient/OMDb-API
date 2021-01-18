@@ -36,7 +36,7 @@
           class="mb-2"
         >        
             <div style="width: 20vw; margin-left: 15vw">
-              <b-form-input :click="fetchText(text)" v-model="text" placeholder="Search for a movie"></b-form-input>            
+              <b-form-input v-model="text" placeholder="Search for a movie"></b-form-input>            
             </div>        
         </b-card>
       </div>
@@ -80,8 +80,8 @@ export default {
   }),
   methods: {
     async fetchText(title) {
-          let res = await fetch('https://cors-anywhere.herokuapp.com/http://www.omdbapi.com/?apikey=a72d8c19&t=' + title)
-          let pos = await fetch('https://cors-anywhere.herokuapp.com/http://img.omdbapi.com/?apikey=a72d8c19&t=' + title)
+          let res = await fetch('http://www.omdbapi.com/?apikey=a72d8c19&t=' + title)
+          let pos = await fetch('http://img.omdbapi.com/?apikey=a72d8c19&t=' + title)
           let data = await res.text()          
           this.jsonRes = data    
           this.poster = pos    
@@ -102,6 +102,11 @@ export default {
   },
   created() {
     this.fetchText('')
+  },
+  watch: {
+    text: function () {
+      this.fetchText(this.text)
+    }
   }
 }
 </script>
