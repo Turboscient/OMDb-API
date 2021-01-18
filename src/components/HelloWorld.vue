@@ -80,8 +80,8 @@ export default {
   }),
   methods: {
     async fetchText(title) {
-          let res = await fetch('https://cors-anywhere.herokuapp.com/http://www.omdbapi.com/?apikey=a72d8c19&t=' + title)
-          let pos = await fetch('https://cors-anywhere.herokuapp.com/http://img.omdbapi.com/?apikey=a72d8c19&t=' + title)
+          let res = await fetch('https://www.omdbapi.com/?apikey=a72d8c19&t=' + title)
+          let pos = await fetch('https://img.omdbapi.com/?apikey=a72d8c19&t=' + title)
           let data = await res.text()          
           this.jsonRes = data    
           this.poster = pos    
