@@ -80,23 +80,27 @@ export default {
   }),
   methods: {
     async fetchText(title) {
-          let res = await fetch('https://www.omdbapi.com/?apikey=a72d8c19&t=' + title)
-          let pos = await fetch('https://img.omdbapi.com/?apikey=a72d8c19&t=' + title)
-          let data = await res.text()          
-          this.jsonRes = data    
-          this.poster = pos    
+      let res = await fetch('https://www.omdbapi.com/?apikey=a72d8c19&t=' + title)
+      let pos = await fetch('https://img.omdbapi.com/?apikey=a72d8c19&t=' + title)
+      let data = await res.text()          
+      this.jsonRes = data    
+      this.poster = pos    
     },
     removeMovie(id) {
-      this.nominated.splice(id, 1)     
+      this.nominated = this.nominated.filter(nomination => nomination.imdbID !== id) 
     },
     notInMovieList(id) {
       const newArr = [...this.nominated]      
       return newArr.filter(nomination => nomination.imdbID == id).length == 0
     },
-    nominationProcess(elem) {
-      this.nominated.push(elem)
-      if (this.nominated.length == 5) {
-        this.$bvModal.show('modal-1') 
+    nominationProcess(elem) {  
+      console.log(elem)    
+      console.log(elem.Response)
+      if (elem.Response === "True") {
+        this.nominated.push(elem)
+        if (this.nominated.length == 5) {
+          this.$bvModal.show('modal-1') 
+        }
       }
     }
   },
