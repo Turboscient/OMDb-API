@@ -1,6 +1,6 @@
 # shopify-front-end
 
-This is currently a work in progress, and should be finished within a couple of days (currently it is May 3rd, 2021)
+This is currently a work in progress, and should be finished within a couple of days (currently it is May 3rd, 2021). This is a going to be my submission for the Shopify Frontend Challenge.
 
 ## Project setup
 ```
