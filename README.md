@@ -1,6 +1,12 @@
 # shopify-front-end
 
-This is currently a work in progress, and should be finished within a couple of days (currently it is May 3rd, 2021). This is going to be my submission for the Shopify Frontend Challenge.
+This is an ongoing project. Each iteration is my next submission for the Shopify Frontend Challenge.
+
+Based off of: https://docs.google.com/document/d/1SdR9rQpocsH5rPTOcxr9noqHRld5NJlylKO9Hf94U8U/edit?usp=sharing
+
+Live at: https://turboscient-omdb-api.netlify.app/
+
+Designed primarily for desktop (mobile will show up in a future iteration)
 
 ## Project setup
 ```
