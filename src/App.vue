@@ -2,17 +2,17 @@
   <div id="app">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300&display=swap" rel="stylesheet"> 
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <ShopifyFrontend msg="Welcome to Your Vue.js App"/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import ShopifyFrontend from './components/ShopifyFrontend.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    ShopifyFrontend
   }
 }
 </script>

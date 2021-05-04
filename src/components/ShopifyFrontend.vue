@@ -134,7 +134,7 @@
 
 <script>
 export default {
-  name: "HelloWorld",
+  name: "ShopifyFrontend",
   data: () => ({
     json: null,
     poster: null,
