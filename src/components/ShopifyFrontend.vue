@@ -143,10 +143,24 @@ export default {
     nominated: [],
     searchResults: [],
   }),
-  methods: {
+    methods: {
+      /* Source for sanitize: https://stackoverflow.com/a/48226843 */
+    sanitize(string) {
+      const map = {
+          '&': '&amp;',
+          '<': '&lt;',
+          '>': '&gt;',
+          '"': '&quot;',
+          "'": '&#x27;',
+          "/": '&#x2F;',
+      };
+      const reg = /[&<>"'/]/ig;
+      return string.replace(reg, (match)=>(map[match]));
+    },
     async fetchInfo(id) {
+      id = this.sanitize(id)
       let res = await fetch(
-        "https://www.omdbapi.com/?apikey=4a20833c&i=" + id
+        "https://www.omdbapi.com/?apikey=4a20833c&type=movie&i=" + id
       );
       let data = await res.text();
       this.json = JSON.parse(data);
@@ -155,8 +169,9 @@ export default {
       console.log(this.json);
     },
     async search(title) {
+      title = this.sanitize(title)
       let res = await fetch(
-        "https://www.omdbapi.com/?apikey=4a20833c&s=" + title
+        "https://www.omdbapi.com/?apikey=4a20833c&type=movie&s=" + title
       );
       let data = await res.text();
       this.searchResults = JSON.parse(data);
