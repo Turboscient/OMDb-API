@@ -165,8 +165,7 @@ export default {
       let data = await res.text();
       this.json = JSON.parse(data);
       this.resultsOrInfo = "info";      
-      this.$bvModal.show("modal-0");
-      console.log(this.json);
+      this.$bvModal.show("modal-0");      
     },
     async search(title) {
       title = this.sanitize(title)
